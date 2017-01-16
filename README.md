@@ -1,5 +1,11 @@
 # Akela-Colormap
 
+![status][st:stable]
+
+ [st:stable]: https://img.shields.io/badge/stable-✔-black.png?style=flat&colorA=44cc11&colorB=494e52
+ [st:broken]: https://img.shields.io/badge/broken-X-black.png?style=flat&colorA=e05d44&colorB=494e52
+ [st:experimental]: https://img.shields.io/badge/experimental----black.png?style=flat&colorA=dfb317&colorB=494e52
+
 The `ColorMap` extension provides an easier way to set up a different - static -
 color map per-layer. This means that we can set up a map of colors for each key,
 on a per-layer basis, and whenever a layer becomes active, the color map for
