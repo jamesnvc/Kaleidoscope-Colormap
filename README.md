@@ -65,4 +65,4 @@ The extension provides a `Colormap` singleton object, with a single method:
 Starting from the [example][plugin:example] is the recommended way of getting
 started with the plugin.
 
- [plugin:example]: https://github.com/Akela-Plugins/Akela-Colormap/blob/master/examples/Colormap/Colormap.ino
+ [plugin:example]: https://github.com/keyboardio/Akela-Colormap/blob/master/examples/Colormap/Colormap.ino
