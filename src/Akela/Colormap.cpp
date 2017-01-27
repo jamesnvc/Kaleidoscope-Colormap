@@ -55,7 +55,7 @@ namespace Akela {
           color.g = pgm_read_byte (&(palette[colorIndex].g));
           color.r = pgm_read_byte (&(palette[colorIndex].r));
 
-          led_set_crgb_at (r, c, color);
+          LEDControl.led_set_crgb_at (r, c, color);
         }
       }
     }
