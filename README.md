@@ -1,4 +1,4 @@
-# Akela-Colormap
+# Kaleidoscope-Colormap
 
 ![status][st:stable]
 
@@ -21,7 +21,8 @@ To set up a colormap, include the header, create a palette, and a colormap
 description, and let the extension know that it shall use both of these:
 
 ```c++
-#include <Akela-Colormap.h>
+#include <Kaleidoscope.h>
+#include <Kaleidoscope-Colormap.h>
 
 static const cRGB palette[] PROGMEM = {
   {0, 0, 0},
@@ -35,8 +36,8 @@ static const uint8_t colormap[KEYMAP_SIZE][ROWS][COLS] PROGMEM = {
 void setup (void) {
   Colormap.configure (palette, colormap);
 
-  Keyboardio.setup (KEYMAP_SIZE);
-  Keyboardio.use (&Colormap, NULL);
+  Kaleidoscope.setup (KEYMAP_SIZE);
+  Kaleidoscope.use (&Colormap, NULL);
 }
 ``` 
 
@@ -49,7 +50,7 @@ palette indexes instead of keys. But similar to the palette, it should reside in
 firmware may randomly crash. It is recommended to use the `KEYMAP_SIZE` macro to
 make sure the colormap is the right size.
 
-To use the transparent color, use either `Akela::ColorEffect::Transparent` as
+To use the transparent color, use either `Kaleidoscope::ColorEffect::Transparent` as
 the color index, or `255`.
 
 ## Extension methods
@@ -65,4 +66,4 @@ The extension provides a `Colormap` singleton object, with a single method:
 Starting from the [example][plugin:example] is the recommended way of getting
 started with the plugin.
 
- [plugin:example]: https://github.com/keyboardio/Akela-Colormap/blob/master/examples/Colormap/Colormap.ino
+ [plugin:example]: https://github.com/keyboardio/Kaleidoscope-Colormap/blob/master/examples/Colormap/Colormap.ino

@@ -1,5 +1,5 @@
 /* -*- mode: c++ -*-
- * Akela -- Animated Keyboardio Extension Library for Anything
+ * Kaleidoscope-Colormap -- Per-layer colormap effect
  * Copyright (C) 2016, 2017  Gergely Nagy
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,4 +18,23 @@
 
 #pragma once
 
-#include <Akela/Colormap.h>
+#include <Kaleidoscope-LEDControl.h>
+
+namespace KaleidoscopePlugins {
+  class ColormapEffect : public LEDMode {
+  public:
+    static const uint8_t Transparent = 255;
+
+    ColormapEffect (void);
+
+    void configure (const cRGB palette[], const uint8_t colorMap[][ROWS][COLS]);
+
+    virtual void update (void) final;
+
+  private:
+    static const cRGB *palette;
+    static const uint8_t *colorMap;
+  };
+};
+
+extern KaleidoscopePlugins::ColormapEffect ColormapEffect;

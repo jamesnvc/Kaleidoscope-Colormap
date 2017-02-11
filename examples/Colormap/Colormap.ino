@@ -1,5 +1,5 @@
 /* -*- mode: c++ -*-
- * Akela -- Animated Keyboardio Extension Library for Anything
+ * Kaleidoscope-Colormap -- Per-layer colormap effect
  * Copyright (C) 2016, 2017  Gergely Nagy
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,7 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <Akela-Colormap.h>
+#include <Kaleidoscope.h>
+#include <Kaleidoscope-Colormap.h>
 
 enum {
   OFF,
@@ -83,13 +84,13 @@ const cRGB palette[] PROGMEM = {
 };
 
 void setup () {
-  Keyboardio.use (&LEDControl, &ColormapEffect, NULL);
+  Kaleidoscope.use (&LEDControl, &ColormapEffect, NULL);
 
-  Keyboardio.setup (KEYMAP_SIZE);
+  Kaleidoscope.setup (KEYMAP_SIZE);
   ColormapEffect.configure (palette, colormap);
   ColormapEffect.activate ();
 }
 
 void loop () {
-  Keyboardio.loop ();
+  Kaleidoscope.loop ();
 }
