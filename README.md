@@ -50,8 +50,8 @@ palette indexes instead of keys. But similar to the palette, it should reside in
 firmware may randomly crash. It is recommended to use the `KEYMAP_SIZE` macro to
 make sure the colormap is the right size.
 
-To use the transparent color, use either `Kaleidoscope::ColorEffect::Transparent` as
-the color index, or `255`.
+To use the transparent color, use either
+`KaleidoscopePlugins::ColormapEffect::Transparent` as the color index, or `255`.
 
 ## Extension methods
 
