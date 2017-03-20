@@ -64,6 +64,10 @@ The extension provides a `Colormap` singleton object, with a single method:
 
 > Tells the extension to use the given palette and colormap.
 
+## Dependencies
+
+* [Kaleidoscope-LEDControl](https://github.com/keyboardio/Kaleidoscope-LEDControl)
+
 ## Further reading
 
 Starting from the [example][plugin:example] is the recommended way of getting
