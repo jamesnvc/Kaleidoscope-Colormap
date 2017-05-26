@@ -22,53 +22,53 @@
 
 namespace KaleidoscopePlugins {
 
-  void
-  Colormapper::update (void) {
+void
+Colormapper::update (void) {
     for (uint8_t l = 0; l < 32; l++) {
-      if (!Layer.isOn (l))
-        continue;
-
-      for (uint8_t r = 0; r < ROWS; r++) {
-        for (uint8_t c = 0; c < COLS; c++) {
-          cRGB color;
-
-          if (!lookupColor (l, r, c, &color))
+        if (!Layer.isOn (l))
             continue;
 
-          LEDControl.led_set_crgb_at (r, c, color);
+        for (uint8_t r = 0; r < ROWS; r++) {
+            for (uint8_t c = 0; c < COLS; c++) {
+                cRGB color;
+
+                if (!lookupColor (l, r, c, &color))
+                    continue;
+
+                LEDControl.led_set_crgb_at (r, c, color);
+            }
         }
-      }
     }
-  }
+}
 
-  const cRGB *ColormapEffect::palette;
-  const uint8_t *ColormapEffect::colorMap;
+const cRGB *ColormapEffect::palette;
+const uint8_t *ColormapEffect::colorMap;
 
-  ColormapEffect::ColormapEffect (void) {
-  }
+ColormapEffect::ColormapEffect (void) {
+}
 
-  void
-  ColormapEffect::configure (const cRGB _palette[], const uint8_t _colorMap[][ROWS][COLS]) {
+void
+ColormapEffect::configure (const cRGB _palette[], const uint8_t _colorMap[][ROWS][COLS]) {
     palette = _palette;
     colorMap = (const uint8_t *)_colorMap;
-  }
+}
 
-  const bool
-  ColormapEffect::lookupColor (uint8_t layer, uint8_t row, uint8_t column, cRGB *color) {
+const bool
+ColormapEffect::lookupColor (uint8_t layer, uint8_t row, uint8_t column, cRGB *color) {
     uint8_t colorIndex;
 
     uint16_t mapIndex = (layer * ROWS * COLS + row * COLS + column);
     colorIndex = pgm_read_byte (&(colorMap[mapIndex]));
 
     if (colorIndex == Transparent)
-      return false;
+        return false;
 
     color->b = pgm_read_byte (&(palette[colorIndex].b));
     color->g = pgm_read_byte (&(palette[colorIndex].g));
     color->r = pgm_read_byte (&(palette[colorIndex].r));
 
     return true;
-  }
+}
 
 };
 

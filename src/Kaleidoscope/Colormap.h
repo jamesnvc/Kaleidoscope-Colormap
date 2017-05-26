@@ -21,13 +21,13 @@
 #include <Kaleidoscope-LEDControl.h>
 
 namespace KaleidoscopePlugins {
-  class Colormapper : public LEDMode {
+class Colormapper : public LEDMode {
     virtual void update (void) final;
 
     virtual const bool lookupColor (uint8_t layer, uint8_t row, uint8_t column, cRGB *color) = 0;
-  };
+};
 
-  class ColormapEffect : public Colormapper {
+class ColormapEffect : public Colormapper {
   public:
     static const uint8_t Transparent = 255;
 
@@ -40,7 +40,7 @@ namespace KaleidoscopePlugins {
   private:
     static const cRGB *palette;
     static const uint8_t *colorMap;
-  };
+};
 };
 
 extern KaleidoscopePlugins::ColormapEffect ColormapEffect;
